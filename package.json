@@ -1,0 +1,22 @@
+{
+  "name": "programacion_v",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "EJERCICIO1": "node EJERCICIO1/EJERCICIO1.js",
+    "EJERCICIO2": "node EJERCICIO2/ejercicio2.js",
+    "EJERCICIO3": "node EJERCICIO3/EJERCICIO3.js",
+    "EJERCICIO4": "node EJERCICIO4/EJERCICIO4.js",
+    "EJERCICIO5": "node EJERCICIO5/EJERCICIO5.js",
+    "EJERCICIO6": "node EJERCICIO6/EJERCICIO6.js",
+    "EJERCICIO7": "node EJERCICIO7/EJERCICIO7.js",
+    "EJERCICIO8": "node EJERCICIO8/EJERCICIO8.js",
+    "EJERCICIO9": "node EJERCICIO9/EJERCICIO9.js",
+    "EJERCICIO10": "node EJERCICIO10/EJERCICIO10.js"
+  },
+  "keywords": [],
+  "author": "Sebastian valencia-Mabel ladino",
+  "license": "chuchito-amen",
+  "description": ""
+}
