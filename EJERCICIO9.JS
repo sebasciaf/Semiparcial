@@ -1,23 +1,26 @@
+const readline = require('readline');
 
-function determinarGrupo(nombre, sexo) {
-    
-    let primeraLetra = nombre.toUpperCase().charAt(0);
-    
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-    if ((sexo == 'Mujer' && primeraLetra < 'M') || (sexo == 'Hombre' && primeraLetra > 'N')) {
-        return 'A';
+rl.question('Ingrese su nombre: ', (nombre) => {
+  rl.question('Ingrese su sexo (M/F): ', (sexo) => {
+    // Convertir el nombre a minúsculas para comparación
+    const nombreMinusculas = nombre.toLowerCase();
+    
+    // Determinar el grupo según las reglas
+    let grupo = '';
+    if ((sexo.toLowerCase() === 'f' && nombreMinusculas < 'm') || (sexo.toLowerCase() === 'm' && nombreMinusculas > 'n')) {
+      grupo = 'A';
     } else {
-        // Si no cumple las condiciones del grupo A, pertenece al grupo B
-        return 'B';
+      grupo = 'B';
     }
-}
 
+    // Mostrar el grupo correspondiente
+    console.log(`Usted pertenece al grupo ${grupo}`);
 
-let nombre = prompt("Por favor, introduce tu nombre:");
-let sexo = prompt("Por favor, introduce tu sexo (Hombre/Mujer):");
-
-
-let grupo = determinarGrupo(nombre, sexo);
-
-// Mostrar el resultado
-console.log(`Hola ${nombre}, perteneces al grupo ${grupo}.`);
+    rl.close();
+  });
+});
