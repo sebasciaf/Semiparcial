@@ -1,26 +1,30 @@
-// Pedimos al usuario que ingrese su renta anual
-var rentaAnual = parseFloat(prompt("Ingrese su renta anual en euros:"));
+const readline = require('readline');
 
-// Definimos las diferentes categorías impositivas y sus límites de renta
-var categoriasImpositivas = [
-    { limite: 12450, tipoImpositivo: "0%" },
-    { limite: 20200, tipoImpositivo: "19%" },
-    { limite: 35200, tipoImpositivo: "24%" },
-    { limite: 60000, tipoImpositivo: "30%" },
-    { limite: Infinity, tipoImpositivo: "37%" }
-];
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-// Función para determinar el tipo impositivo según la renta anual
-function determinarTipoImpositivo(rentaAnual) {
-    for (var i = 0; i < categoriasImpositivas.length; i++) {
-        if (rentaAnual <= categoriasImpositivas[i].limite) {
-            return categoriasImpositivas[i].tipoImpositivo;
-        }
+rl.question('Por favor, introduce tu renta anual: ', (rentaAnual) => {
+  const renta = parseFloat(rentaAnual);
+
+  if (isNaN(renta)) {
+    console.log('Por favor, introduce un número válido.');
+  } else {
+    let tipoImpositivo;
+
+    if (renta <= 15000) {
+      tipoImpositivo = '5%';
+    } else if (renta <= 30000) {
+      tipoImpositivo = '15%';
+    } else if (renta <= 60000) {
+      tipoImpositivo = '25%';
+    } else {
+      tipoImpositivo = '35%';
     }
-}
 
-// Determinamos el tipo impositivo correspondiente a la renta anual ingresada
-var tipoImpositivo = determinarTipoImpositivo(rentaAnual);
+    console.log(`Tu renta anual es de ${rentaAnual} y tu tipo impositivo es del ${tipoImpositivo}.`);
+  }
 
-// Mostramos el resultado al usuario
-console.log("Para una renta anual de " + rentaAnual + " euros, el tipo impositivo correspondiente es: " + tipoImpositivo);
+  rl.close();
+});
