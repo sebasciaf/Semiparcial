@@ -1,33 +1,33 @@
-//Generar un código quedetermine si un numero es par o impar//
-function esPar(numero) {
-    return numero % 2 === 0;
-}
+const readline = require('readline');
 
-function esImpar(numero) {
-    return numero % 2 !== 0;
-}
-let numero = prompt("Por favor, ingresa un número:");
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-// Intentamos convertir el valor ingresado a un entero
-try {
-    const valorEntero = parseInt(numero);
-    if (isNaN(valorEntero)) {
-        console.log("El valor ingresado no es un número válido.");
+// Función para determinar si un número es negativo, positivo o cero
+function determinarNumero(numero) {
+    if (numero > 0) {
+        return "El número es positivo";
+    } else if (numero < 0) {
+        return "El número es negativo";
     } else {
-        if (valorEntero % 2 === 0) {
-            console.log(`El número ${valorEntero} es par.`);
-        } else {
-            console.log(`El número ${valorEntero} es impar.`);
-        }
+        return "El número es cero";
     }
-} catch (error) {
-    console.log("Ocurrió un error al procesar el número ingresado.");
 }
 
+// Pedir al usuario que ingrese un número
+rl.question('Ingrese un número: ', (numero) => {
+  // Convertir la entrada del usuario a un número
+  numero = parseFloat(numero);
+  
+  // Verificar si el usuario ingresó un número válido
+  if (isNaN(numero)) {
+    console.log('Por favor, ingrese un número válido.');
+  } else {
+    // Determinar si el número es negativo, positivo o cero
+    console.log(determinarNumero(numero));
+  }
 
-// Ejemplos de uso
-const numero1 = 10;
-const numero2 = 7;
-
-console.log(`${numero1} es par: ${esPar(numero1)}`);
-console.log(`${numero2} es impar: ${esImpar(numero2)}`);
+  rl.close();
+});
