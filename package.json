@@ -1,7 +1,7 @@
 {
   "name": "programacion_v",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "EJERCICIO1": "node EJERCICIO1.js",
